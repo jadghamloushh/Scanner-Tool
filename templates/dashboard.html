@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secret Scanner Dashboard</title>
+  </head>
+  <body>
+    <h1>Recent Findings</h1>
+    <table border="1" cellpadding="4">
+      <tr>
+        <th>Platform</th>
+        <th>Target</th>
+        <th>File</th>
+        <th>Tool</th>
+        <th>Secret</th>
+        <th>When</th>
+      </tr>
+      {% for p,t,f,d,s,ts in rows %}
+      <tr>
+        <td>{{p}}</td>
+        <td>{{t}}</td>
+        <td>{{f}}</td>
+        <td>{{d}}</td>
+        <td><code>{{s}}</code></td>
+        <td>{{ts}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
