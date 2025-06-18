@@ -59,12 +59,14 @@ pip install -r requirements.txt
 ## 📝 Make a `.env` and put your keys
 
 ```dotenv
-GITHUB_PAT=ghp_xxxxxxxxxxxxxxxxxxxxx
-SLACK_WEBHOOK=https://hooks.slack.com/services/XXX/YYY/ZZZ
-AWS_ACCESS_KEY_ID=AKIAxxxxxxxxxxxxxxxx
-AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+GITHUB_TOKEN=yourtoken
+BITBUCKET_USER=yourtoken
+BITBUCKET_API_TOKEN=yourtoken
+POSTMAN_API_KEY=yourtoken
 ````
 `````
+
+````
 
 ---
 
@@ -86,14 +88,23 @@ python scanner.py
 
 ---
 
-## 🔒 Responsible disclosure / Ethics
+### 🔧 Choosing which GitHub repositories to scan
 
-- The scanner stores **only redacted fingerprints** of tokens by default (first 4 / last 4).
-- GitHub issues are created as private security advisories when the calling PAT has permission.
-- No attempt is made to exploit or validate secrets against live services unless you **explicitly** enable validator plugins.
+`clients/github_client.py` controls the _input list_ for the scanner.
+By default it returns a **single hard-coded repo**:
+
+```python
+from github import Github
+from config import GITHUB_TOKEN
+
+gh = Github(GITHUB_TOKEN)
+
+def list_user_repos():
+    # current demo target
+    return [gh.get_repo("jadghamloushh/scanner-test")]
+    #to scan all repos do this:
+    return [gh.get_user().get_repos()]
 
 ---
 
-```
-
-```
+````
