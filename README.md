@@ -69,7 +69,7 @@ python dashboard.py     # opens http://localhost:5000
 
 ---
 
-## 📝 `.env` file (minimal)
+## 📝 Make a `.env` and put your keys
 
 ```dotenv
 GITHUB_PAT=ghp_xxxxxxxxxxxxxxxxxxxxx
@@ -84,24 +84,6 @@ _No secrets are committed to Git; `python-dotenv` loads them at runtime._
 
 ## 🏃‍♂️ Usage
 
-### Scan a public repo and write JSON
-
-```bash
-secretscan --repo https://github.com/alice/project -o findings.json
-```
-
-### Watch a local log folder for real-time leaks
-
-```bash
-python -m monitor.file_watch /var/log/myapp
-```
-
-### Poll Elasticsearch (ELK) for leaks every 15 s
-
-```bash
-python -m monitor.elk_watch --index app-logs --interval 15
-```
-
 ### Launch the Flask dashboard
 
 ```bash
@@ -109,34 +91,11 @@ python dashboard.py
 # then open http://localhost:5000
 ```
 
----
-
-## 🔄 Updating Token-Guardian
+### Launch the Flask dashboard
 
 ```bash
-git pull
-pip install -e . --upgrade
+python scanner.py
 ```
-
----
-
-## ❌ Uninstall
-
-```bash
-deactivate            # leave the venv
-rm -rf .venv          # delete virtual env
-rm -rf token-guardian # remove source clone
-```
-
----
-
-## 🤝 Contributing
-
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feat/my-rule`)
-3. Add tests in `tests/` (pytest)
-4. Run `pre-commit run --all-files`
-5. Submit a PR 🎉
 
 ---
 
@@ -147,13 +106,3 @@ rm -rf token-guardian # remove source clone
 - No attempt is made to exploit or validate secrets against live services unless you **explicitly** enable validator plugins.
 
 ---
-
-## 📄 License
-
-MIT – see [`LICENSE`](LICENSE).
-
-Happy scanning! ☕
-
-```
-
-```
