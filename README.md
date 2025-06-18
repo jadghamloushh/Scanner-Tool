@@ -57,10 +57,6 @@ BITBUCKET_API_TOKEN=yourtoken
 POSTMAN_API_KEY=yourtoken
 ```
 
-`````
-
-````
-
 ---
 
 ## 🏃‍♂️ Usage
@@ -100,5 +96,8 @@ def list_user_repos():
 
 ---
 
-````
-`````
+```
+
+```
+
+```
