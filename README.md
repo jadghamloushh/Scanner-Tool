@@ -24,7 +24,7 @@ Everything else is pulled from **PyPI**.
 
 ## 🚀 Quick-start (all OSes)
 
-````bash
+```bash
 # 1. Clone Token-Guardian
 git clone https://github.com/jadghamloushh/Scanner-Tool.git
 cd Scanner-Tool
@@ -46,6 +46,7 @@ pip install -r requirements.txt
 # Windows ➜ download ZIP from Releases, put gitleaks.exe on PATH
 
 ---
+```
 
 ## 📝 Make a `.env` and put your keys
 
@@ -54,7 +55,7 @@ GITHUB_TOKEN=yourtoken
 BITBUCKET_USER=yourtoken
 BITBUCKET_API_TOKEN=yourtoken
 POSTMAN_API_KEY=yourtoken
-````
+```
 
 `````
 
