@@ -1,4 +1,4 @@
-````markdown
+`````markdown
 # 🛡️ Token-Guardian
 
 **Token-Guardian** is a cross-platform, all-Python toolkit that scans public (or local) code repositories and log streams for leaked secrets—API keys, OAuth tokens, database URIs, SSH keys—and raises an immediate alert.  
@@ -33,39 +33,26 @@ Everything else is pulled from **PyPI**.
 
 ## 🚀 Quick-start (all OSes)
 
-```bash
+````bash
 # 1. Clone Token-Guardian
-git clone https://github.com/<your-user>/token-guardian.git
-cd token-guardian
+git clone https://github.com/jadghamloushh/Scanner-Tool.git
+cd Scanner-Tool
 
 # 2. Make a virtual environment
 # Linux/macOS  ➜
 python3 -m venv .venv && source .venv/bin/activate
 # Windows (PowerShell) ➜
-# python -m venv .venv; .\.venv\Scripts\Activate.ps1
+python -m venv .venv; .\.venv\Scripts\Activate.ps1
 
 python -m pip install --upgrade pip wheel setuptools
 
 # 3. Install Python deps
-pip install -r requirements.txt        # or:  pip install -e .
+pip install -r requirements.txt
 
-# 4. Install GitLeaks (only non-Python part)
+# 4. Install GitLeaks
 # macOS  ➜  brew install gitleaks
 # Linux  ➜  sudo apt install gitleaks
 # Windows ➜ download ZIP from Releases, put gitleaks.exe on PATH
-
-# 5. Create a .env file with your tokens
-cp .env.example .env    # then open .env and fill in values
-
-# 6. Scan something!
-python scanner.py --repo https://github.com/torvalds/linux -o report.json
-# or, if installed with `pip install -e .`:
-# secretscan --repo https://github.com/torvalds/linux -o report.json
-
-# 7. View the dashboard (optional)
-python dashboard.py     # opens http://localhost:5000
-```
-````
 
 ---
 
@@ -76,9 +63,8 @@ GITHUB_PAT=ghp_xxxxxxxxxxxxxxxxxxxxx
 SLACK_WEBHOOK=https://hooks.slack.com/services/XXX/YYY/ZZZ
 AWS_ACCESS_KEY_ID=AKIAxxxxxxxxxxxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-_No secrets are committed to Git; `python-dotenv` loads them at runtime._
+````
+`````
 
 ---
 
@@ -94,6 +80,7 @@ python dashboard.py
 ### Launch the Flask dashboard
 
 ```bash
+export GITHUB_TOKEN="you token"
 python scanner.py
 ```
 
@@ -106,3 +93,7 @@ python scanner.py
 - No attempt is made to exploit or validate secrets against live services unless you **explicitly** enable validator plugins.
 
 ---
+
+```
+
+```
