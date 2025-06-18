@@ -1,12 +1,3 @@
-`````markdown
-# 🛡️ Token-Guardian
-
-**Token-Guardian** is a cross-platform, all-Python toolkit that scans public (or local) code repositories and log streams for leaked secrets—API keys, OAuth tokens, database URIs, SSH keys—and raises an immediate alert.  
-It wraps three battle-tested scanners (Detect-Secrets, TruffleHog v3, GitLeaks) plus your own regex/ML rules, then records every finding in SQLite and (optionally) files a GitHub issue or Slack notification.  
-A tiny Flask dashboard (`dashboard.py`) visualises everything in real time.
-
----
-
 ## ✨ Features
 
 - **Multi-engine detection** – Detect-Secrets, TruffleHog, GitLeaks, custom regexes
@@ -64,6 +55,7 @@ BITBUCKET_USER=yourtoken
 BITBUCKET_API_TOKEN=yourtoken
 POSTMAN_API_KEY=yourtoken
 ````
+
 `````
 
 ````
@@ -108,3 +100,4 @@ def list_user_repos():
 ---
 
 ````
+`````
