@@ -68,10 +68,10 @@ python dashboard.py
 # then open http://localhost:5000
 ```
 
-### Launch the Flask dashboard
+### Launch the scanner
 
 ```bash
-export GITHUB_TOKEN="you token"
+export GITHUB_TOKEN="your token"
 python scanner.py
 ```
 
@@ -93,11 +93,5 @@ def list_user_repos():
     return [gh.get_repo("jadghamloushh/scanner-test")]
     #to scan all repos do this:
     return [gh.get_user().get_repos()]
-
----
-
-```
-
-```
 
 ```
