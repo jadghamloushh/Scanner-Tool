@@ -11,7 +11,7 @@ from clients.postman_client import list_collections as pm_colls
 from fetchers.clone_helper import clone_repo
 from fetchers.postman_fetcher import download_collection
 from detection.regex_detector import find_with_regex
-from detection.external_tools import run_detect_secrets, run_gitleaks
+from detection.external_tools import run_detect_secrets, run_gitleaks, run_trufflehog
 from config import DB_PATH, SLACK_WEBHOOK_URL
 
 # 1. Setup logging
@@ -123,6 +123,16 @@ def scan_github():
         for leak in leaks:
             record("github", repo.full_name, leak.get("File"), "gitleaks", leak.get("Secret"))
             create_github_issue(repo.full_name, leak.get("File"), leak.get("Secret"))
+
+        #TruffleHog
+        thog_leaks = run_trufflehog(path)
+        for leak in thog_leaks:
+            file_path = leak.get("SourceMetadata", {}).get("Data", "")
+            secret    = leak.get("Raw", "")
+            record("github", repo.full_name, file_path, "trufflehog", secret)
+            create_github_issue(repo.full_name, file_path, secret)
+
+
 
 
 def scan_bitbucket():

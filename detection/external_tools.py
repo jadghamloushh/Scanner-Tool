@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Dict, List
 
@@ -51,3 +52,17 @@ def run_gitleaks(repo_path: str) -> List[dict]:
         return []  # no leaks or JSON output
 
     return json.loads(completed.stdout)
+
+def run_trufflehog(repo_path: str):
+
+    cmd = [
+        "trufflehog",
+        "filesystem",               # local scan
+        repo_path,
+        "--json",                   # JSON output
+        "--no-update",              # skip self-update prompt
+    ]
+    # TruffleHog always prints each finding as one JSON line
+    output = subprocess.check_output(cmd, text=True)
+    findings = [json.loads(line) for line in output.splitlines() if line.strip()]
+    return findings
